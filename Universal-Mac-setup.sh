@@ -46,6 +46,8 @@ install_xcode_cli() {
   fi
 }
 
+
+
 install_homebrew() {
   print_header "Homebrew"
   if ! command -v brew &>/dev/null; then
