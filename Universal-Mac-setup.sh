@@ -32,8 +32,10 @@ print_header() {
 require_power() {
   print_header "Power Check"
   read -rp "Is your Mac plugged in to AC power? (y/n) " ans
-  [[ "${ans,,}" == "y" ]] || { echo "→ Plug in first, then re-run."; exit 1; }
+  ans_lc=$(echo "$ans" | tr '[:upper:]' '[:lower:]')
+  [[ "$ans_lc" == "y" ]] || { echo "→ Plug in first, then re-run."; exit 1; }
 }
+
 
 install_xcode_cli() {
   print_header "Xcode Command Line Tools"
